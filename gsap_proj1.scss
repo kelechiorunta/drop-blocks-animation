@@ -1,0 +1,121 @@
+:root{
+    --length-:23;
+}
+
+*, *::before, *::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width:50%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    border:1px solid;
+    position: relative;
+    overflow: hidden;
+
+    .balls{
+        position:absolute;
+        top: -50px;
+        //left: 50px * $n;
+        border: 2px solid black;
+        width: 50px;
+        height:50px;
+        border-radius: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: radial-gradient(white 10%, rgba(0, 0,0,0.3) 20%, red);//radial-gradient(rgba(255, 0,0,0.9),rgba(0, 0,0,0.3));
+        color:black;
+}
+
+$nn: 23;
+
+@for $n from 1 through $nn{
+    .balls:nth-of-type(#{$n}){
+        // position:absolute;
+        // top: -50px;
+        left: 50px * $n;
+        // border: 2px solid black;
+        // width: 50px;
+        // height:50px;
+        // border-radius: 10%;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // background: red;//radial-gradient(rgba(255, 0,0,0.9),rgba(0, 0,0,0.3));
+        // color:yellow;
+    }
+}
+
+    .backdrop{
+        transform-style: preserve-3d;
+    }
+    
+    .backdrop:nth-of-type(1){
+        position:fixed;
+        width:100px;
+        height:100%;
+        left:0;
+        top:0;
+        background-color: rgba(0,255, 0, 0.7);
+        z-index: -1;
+        border: 2px solid white;
+    }
+
+    .backdrop:nth-of-type(2){
+        position:fixed;
+        width:100px;
+        height:100%;
+        right:0;
+        top:0;
+        background-color: rgba(0,255, 0, 0.7);
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid white;
+        button{
+            padding: 2px;
+        }
+    }
+
+    .ball6, .ball11, .ball18{
+        left: 50px !important;
+    }
+    .ball7, .ball12, .ball19{
+        left: 100px !important;
+    }
+    .ball8, .ball13, .ball20{
+        left: 150px !important;
+    }
+    .ball9, .ball14, .ball17{
+        left: 200px !important;
+    }
+    .ball10, .ball15, .ball16{
+        left: 250px !important;
+    }
+
+    .overlay{
+        position: absolute;
+        width: auto;
+        height:50px;
+        margin: auto;
+    }
+}
+//$n: 0;
+
